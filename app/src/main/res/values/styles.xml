@@ -8,4 +8,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="mCustomEditText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">@color/colorDarkGray</item>
+        <item name="android:background">@drawable/round_et</item>
+        <item name="android:layout_marginTop">@dimen/dimen_15dp</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_15dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_50dp</item>
+        <item name="android:textSize">@dimen/dimen_16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+
+    <style name="mCustomTextView" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dimen_2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textSize">@dimen/dimen_10sp</item>
+    </style>
 </resources>

@@ -8,33 +8,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
+    val ZERO: String = "0"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_calcular.setOnClickListener(this)
+        btnCalcular.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
         val id = view.id
-        if (id == R.id.btn_calcular)
+        if (id == R.id.btnCalcular)
             handleCalculate()
-    }
-
-    private fun showMessage(message: String) {
-        Snackbar.make(constraintLayout, message, Snackbar.LENGTH_LONG).show()
     }
 
     private fun handleCalculate() {
         if (isValid()) {
-
             try {
-                val distance = editDistance.text.toString().toFloat()
-                val price = editPrice.text.toString().toFloat()
-                val autonomy = editAutonomy.text.toString().toFloat()
+                val distance = editDistancia.text.toString().toFloat()
+                val price = editPreco.text.toString().toFloat()
+                val autonomy = editAutonomia.text.toString().toFloat()
 
                 var result = ((distance * price) / autonomy)
-                textResult.setText("R$ $result")
+                labelResult.text = "R$ " + result
 
             } catch (ex: NumberFormatException) {
                 showMessage(getString(R.string.valores_validos))
@@ -44,9 +41,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun isValid(): Boolean {
-        return editDistance.text.toString().isNotEmpty()
-                && editPrice.text.toString().isNotEmpty()
-                && editAutonomy.text.toString().isNotEmpty()
-                && editAutonomy.text.toString() != "0"
+        return editDistancia.text.toString().isNotEmpty()
+                && editPreco.text.toString().isNotEmpty()
+                && editAutonomia.text.toString().isNotEmpty()
+                && editAutonomia.text.toString() != ZERO
+    }
+
+    private fun showMessage(message: String) {
+        Snackbar.make(constraintLayout, message, Snackbar.LENGTH_LONG).show()
     }
 }
