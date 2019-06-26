@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val autonomy = editAutonomia.text.toString().toFloat()
 
                 var result = ((distance * price) / autonomy)
-                labelResult.text = "R$ " + result
+                labelResult.text = "R$ %.2f".format(result)
 
             } catch (ex: NumberFormatException) {
                 showMessage(getString(R.string.valores_validos))
